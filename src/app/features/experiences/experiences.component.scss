@@ -1,0 +1,149 @@
+.experience-container{
+  padding: 60px 0px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1100px;
+  margin: auto;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top:0;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background:var(--primary-border-color);
+    // background: linear-gradient(to bottom, var(--primary-border-color), transparent);
+  }
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 0px 40px;
+  margin-bottom: 50px;
+
+  &.left {
+    left: 0;
+    text-align: right;
+
+    .card {
+      margin-right: 40px;
+    }
+  }
+
+  &.right {
+    left: 50%;
+
+    .card {
+      margin-left: 40px;
+    }
+  }
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 0px;
+  right: -16px;
+  width: 33px;
+  height: 33px;
+  background: var( --timeline-bg-color);
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 14px;
+    color: var(--text-color);
+  }
+}
+
+.timeline-item.right .timeline-dot {
+  left: -17px;
+  right: auto;
+}
+
+.glass-card{
+  background: transparent;
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.3s ease;
+
+  .date {
+    display: inline-block;
+    font-size: 14px;
+  }
+
+  h3 {
+    color: var(--text-color);
+    margin: 8px 0;
+  }
+
+  a{
+    font-size: 14px;
+    color: var(--primary);
+    margin-bottom: 12px;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--primary);
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+
+  span {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--primary);
+    background: transparent;
+    color: var(--primary);
+    // border: 1px solid #00eaff;
+    // color: #00eaff;
+    // background: rgba(0, 234, 255, 0.08);
+    
+
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 60px;
+
+    &.left,
+    &.right {
+      left: 0;
+      text-align: left;
+
+      .card {
+        margin: 0;
+      }
+    }
+  }
+
+  .timeline-dot {
+    left: 6px !important;
+    right: auto;
+  }
+}

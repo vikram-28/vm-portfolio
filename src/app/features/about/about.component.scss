@@ -1,0 +1,35 @@
+.about-container{
+    padding: 60px 0px;
+}
+.glass-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-box{
+    width: 120px; 
+    height: 120px; 
+    // background: linear-gradient(135deg, #22d3ee, #a855f7);
+   background-image: url('/images/vikram-self.jpg');
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+    border-radius: 50%;
+}
+.top-back-card{
+    top: -1rem; 
+    right: -1rem; 
+    width: 80px; 
+    height: 80px; 
+    z-index: 1;
+}
+.bottom-back-card{
+    bottom: -1rem; 
+    left: -1rem; 
+    width: 100px; 
+    height: 100px; 
+    background:rgba(8, 145, 178, .3); 
+    z-index: 1;
+    border-radius: 8px;
+}

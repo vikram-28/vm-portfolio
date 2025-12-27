@@ -22,7 +22,8 @@
 
       <!-- Contact Links -->
       <div class="social-icons">
-        <a *ngFor="let link of contactLinks" [href]="link.href" target="_blank" rel="noopener noreferrer"
+        <a *ngFor="let link of contactLinks" [href]="link.href" data-bs-toggle="tooltip" data-bs-placement="top"
+    [attr.title]="link.label" target="_blank" rel="noopener noreferrer"
           class="social-icon me-3">
           <i class="{{ link.icon }}"></i>
         </a>

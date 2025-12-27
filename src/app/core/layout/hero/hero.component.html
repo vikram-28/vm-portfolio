@@ -6,17 +6,30 @@
     <div class="text-center">
         <span class="opportunities-badge">Available for Frontend Roles</span>
         <h1 class="py-4">Hi, I'm <span class="gradient-fulltext glow-text">Vikram Mahadik</span></h1>
-        <p class="mx-auto font-weight-medium subTitle">UI / Frontend Engineer with <span class="text-foreground">5+ years</span> of experience building <br>scalable, high-performance web applications with Angular.</p>
+        <p class="mx-auto font-weight-medium subTitle">UI / Frontend Engineer with <span class="text-foreground">5+
+                years</span> of experience building <br>scalable, high-performance web applications with Angular.</p>
 
         <div class="flex items-center justify-center gap-4 pt-4">
             <a href="#contact" class="btn btn-sm btn-primary py-2 px-3 me-4">Get in Touch</a>
             <a href="#projects" class="btn btn-sm btn-outline py-2 px-3">View Work</a>
         </div>
-        <div class="social-icons py-5">
-            <a href="https://www.linkedin.com/in/vikram-mahadik-6b620b227/" target="_blank" class="social-icon me-3"><i class="bi bi-linkedin"></i></a>
-            <a href="#" target="_blank" class="social-icon me-3"><i class="bi bi-github"></i></a>
-            <a href="mailto:vikrammahadik28@gmail.com" class="social-icon me-3"><i class="bi bi-envelope"></i></a>
+        <!-- <div class="social-icons py-5">
+            <a href="https://www.linkedin.com/in/vikram-mahadik-6b620b227/" target="_blank" data-bs-toggle="tooltip"
+                data-bs-placement="top" title="LinkedIn" class="social-icon me-3"><i class="bi bi-linkedin"></i></a>
+            <a href="#" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Github"
+                class="social-icon me-3"><i class="bi bi-github"></i></a>
+            <a href="mailto:vikrammahadik28@gmail.com" data-bs-toggle="tooltip" data-bs-placement="top" title="Mail"
+                class="social-icon me-3"><i class="bi bi-envelope"></i></a>
+        </div> -->
+
+        <div class="social-icons  py-5">
+            <a *ngFor="let link of contactLinks" [href]="link.href" data-bs-toggle="tooltip" data-bs-placement="top"
+                [attr.title]="link.label" target="_blank" rel="noopener noreferrer" class="social-icon me-3">
+                <i class="{{ link.icon }}"></i>
+            </a>
         </div>
+
+
         <a href="#about" class="scroll-icon font-weight-medium">
             <span class="scrollText">Scroll to explore</span>
             <i class="bi bi-arrow-down-short"></i>

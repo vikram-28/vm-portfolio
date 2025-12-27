@@ -9,6 +9,7 @@ import { ProjectsComponent } from "./features/projects/projects.component";
 import { ContactComponent } from "./features/contact/contact.component";
 import { ToastService } from './core/services/toast.service';
 import { CommonModule } from '@angular/common';
+import { Tooltip } from 'bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -21,5 +22,13 @@ export class AppComponent {
   title = 'vm-portfolio';
   constructor(public toast: ToastService){
 
+  }
+  ngAfterViewInit(): void {
+    const tooltipTriggerList =
+      document.querySelectorAll('[data-bs-toggle="tooltip"]');
+
+    tooltipTriggerList.forEach(el => {
+      new Tooltip(el);
+    });
   }
 }

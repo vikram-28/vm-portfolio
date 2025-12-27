@@ -409,3 +409,14 @@ body{
         font-size: 14px !important;
     }
 }
+.tooltip-inner {
+  background-color: rgba(20, 20, 20, 0.95);
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.tooltip.bs-tooltip-top .tooltip-arrow::before {
+  border-top-color: rgba(20, 20, 20, 0.95);
+}

@@ -1,6 +1,8 @@
-.skills-container{
-    padding: 60px 0px;
-}
+
 .glass-card{
     height: 100%;
+    border: none !important;
+}
+.no-shadow:hover{
+    box-shadow: none !important;
 }

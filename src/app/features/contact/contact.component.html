@@ -1,33 +1,31 @@
 
-<section class="contact-container"  id="contact">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 text-center">
-        <h6 class="text-center">Get in Touch</h6>
-        <h2 class="section-title mb-3">
-          Let's build
-          <span class="gradient-text">impactful</span>
-          digital <br> experiences together
-        </h2>
-        <p class="text-center mb-5">
-          Always open to discussing frontend roles, UI challenges, or new product ideas.
-        </p>
+<section class="contact-container section-wrap" id="contact">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 text-center">
+      <h6 class="text-center">Get in Touch</h6>
+      <h2 class="mb-3">
+        Let's build
+        <span class="gradient-text">impactful</span>
+        digital <br> experiences together
+      </h2>
+      <p class="text-center mb-5">
+        Always open to discussing frontend roles, UI challenges, or new product ideas.
+      </p>
 
-        <!-- Primary CTA -->
-        <div class="mb-5">
+      <!-- Primary CTA -->
+      <div class="mb-5">
         <a href="mailto:vikrammahadik28@gmail.com" class="btn btn-primary btn-lg contact-btn">
-            <!-- <i class="bi bi-envelope me-2"></i> -->
-            Start a Conversation
+          <!-- <i class="bi bi-envelope me-2"></i> -->
+          Start a Conversation
         </a>
-        </div>
+      </div>
 
-        <!-- Contact Links -->
-        <div class="social-icons">
+      <!-- Contact Links -->
+      <div class="social-icons">
         <a *ngFor="let link of contactLinks" [href]="link.href" target="_blank" rel="noopener noreferrer"
-            class="social-icon me-3">
-            <i class="{{ link.icon }}"></i>
+          class="social-icon me-3">
+          <i class="{{ link.icon }}"></i>
         </a>
-        </div>
       </div>
     </div>
   </div>

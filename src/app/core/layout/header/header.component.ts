@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { ThemeService } from '../../services/theme.service';
 
 @Component({
@@ -12,7 +12,6 @@ export class HeaderComponent {
 
 constructor(public  themeService: ThemeService){}
 
- private darkClass = 'dark-theme';
 
 ngOnInit(){
   
@@ -20,4 +19,27 @@ ngOnInit(){
 toggleTheme() {
   this.themeService.toggleTheme();
 }
+
+// active state handled for navbar
+activeSection = 'about';
+
+  ngAfterViewInit() {
+    const sections = document.querySelectorAll('section');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.activeSection = entry.target.id;
+          }
+        });
+      },
+      {
+        rootMargin: '-40% 0px -50% 0px',
+        threshold: 0
+      }
+    );
+
+    sections.forEach(section => observer.observe(section));
+  }
 }

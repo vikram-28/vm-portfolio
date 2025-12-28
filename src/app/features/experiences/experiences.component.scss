@@ -70,6 +70,9 @@
   border-radius: 16px;
   padding: 24px;
   transition: transform 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0px 0px 0px #4f4f4f;
 
   .date {
     display: inline-block;
@@ -78,12 +81,11 @@
 
   h3 {
     color: var(--text-color);
-    margin: 8px 0;
+    margin: 8px 0 0px 0px;
   }
 
   a{
     font-size: 14px;
-    // color: var(--primary);
     margin-bottom: 12px;
     text-decoration: none;
     font-weight: 500;
@@ -112,6 +114,124 @@
   }
 }
 
+// card overlay css
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.card-overlay i {
+  font-size: 32px;
+  color: var(--btn-primary-bg);
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+}
+
+.card-overlay span {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #e5e7eb;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+/* Hover state */
+.glass-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.glass-card:hover .card-overlay i {
+  transform: scale(1);
+}
+/* Desktop overlay */
+.desktop-only {
+  display: none;
+}
+
+@media (hover: hover) {
+  .desktop-only {
+    display: flex;
+  }
+}
+
+/* Mobile preview button */
+.mobile-preview-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--card-border);
+  color: var(--btn-primary-bg);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+/* Show only on touch devices */
+@media (hover: none) {
+  .mobile-preview-btn {
+    display: flex;
+  }
+}
+// modal css
+.modal-backdrop.show {
+  background-color: rgba(2, 6, 23, 0.85); /* dark slate */
+}
+.glass-modal {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  color: #e5e7eb;
+}
+.btn-close{
+  color: #fff !important;
+  background: none;
+  height: auto;
+  width: auto;
+  padding: 0;
+  opacity: 1;
+  i{
+    font-size: 26px;
+  }
+}
+.btn-close:focus{
+  box-shadow: none;
+}
+.projectList{
+  display: flex;
+  font-size: 14px;
+   margin: 0px 5px;
+  font-weight: normal;
+  flex-wrap: wrap;
+  color: var(--primary);
+}
+strong{
+  font-weight: 500;
+  i{
+    color: var(--primary-text-color);
+  }
+  
+}
+
+.techStack span{
+  color: var(--primary);
+  font-size: 14px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .timeline::before {
@@ -138,3 +258,5 @@
     right: auto;
   }
 }
+
+

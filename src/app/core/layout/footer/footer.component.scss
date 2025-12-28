@@ -1,0 +1,14 @@
+.footer{
+    color: var(--primary);
+    text-align: center;
+    font-size: 14px;
+    opacity: .5;
+}
+footer::before {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 1px;
+  margin: 16px auto 8px;
+  background-color: #2c2f36; /* or a lighter gray */
+}

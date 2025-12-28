@@ -10,11 +10,12 @@ import { ContactComponent } from "./features/contact/contact.component";
 import { ToastService } from './core/services/toast.service';
 import { CommonModule } from '@angular/common';
 import { Tooltip } from 'bootstrap';
+import { FooterComponent } from "./core/layout/footer/footer.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,CommonModule, HeaderComponent, HeroComponent, AboutComponent, SkillsComponent, ExperiencesComponent, ProjectsComponent, ContactComponent],
+  imports: [RouterOutlet, CommonModule, HeaderComponent, HeroComponent, AboutComponent, SkillsComponent, ExperiencesComponent, ProjectsComponent, ContactComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

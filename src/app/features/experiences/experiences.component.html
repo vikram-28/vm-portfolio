@@ -1,74 +1,84 @@
 <section class="experience-container section-wrap" id="experience">
-    <div class="row justify-content-center">
-        <h6 class="text-center">Experience</h6>
-        <h2 class="text-center mb-3">My <span class="gradient-text">professional</span> journey</h2>
-        <p class="text-center mb-5">Building my expertise through diverse projects and challenges</p>
-    </div>
-    <div class="timeline">
-    <!-- Item 1 -->
-    <div class="timeline-item left">
+  <div class="row justify-content-center">
+    <h6 class="text-center">Experience</h6>
+    <h2 class="text-center mb-3">My <span class="gradient-text">professional</span> journey</h2>
+    <p class="text-center mb-5">Building my expertise through diverse projects and challenges</p>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item" *ngFor="let exp of experiences" [ngClass]="exp.side">
       <div class="timeline-dot">
         <span><i class="bi bi-briefcase"></i></span>
       </div>
-      <div class="glass-card">
-        <h6 class="date">2024 - Present</h6>
-        <h3>UI Engineer</h3>
-        <a href="https://www.benchmarkit.solutions/" target="_blank" class="gradient-text">Benchmark IT Solutions</a>
-        <p class="pt-2">
-          Leading frontend architecture decisions and mentoring junior developers.
-          Building scalable Angular applications with modern best practices.
-        </p>
-        <div class="tags justify-content-lg-end">
-          <span>Angular</span>
-          <span>Bootstrap</span>
-          <span>React</span>
-          <span>Javascript</span>
-          <span>HTML/CSS</span>
+
+      <div class="glass-card" (click)="openExperience(exp)">
+        <!-- Desktop hover overlay -->
+        <div class="card-overlay desktop-only">
+          <i class="bi bi-eye"></i>
+          <span>View details</span>
         </div>
-      </div>
-    </div>
-    <!-- Item 2 -->
-    <div class="timeline-item right">
-      <div class="timeline-dot">
-        <span><i class="bi bi-briefcase"></i></span>
-      </div>
-      <div class="glass-card">
-        <h6 class="date">2023 - 2024</h6>
-        <h3>Frontend Developer</h3>
-        <a href="https://sidhyatitech.com/" target="_blank" class="gradient-text">Sidhyati Technology solutions Pvt Ltd</a>
-        <p class="pt-2">
-          Developed responsive, accessible, and high-performance web applications, translating Figma designs into pixel-perfect, cross-browser UI components.
-Built and enhanced Angular applications by integrating REST APIs, managing state, and contributing to code reviews and feature delivery in Agile environments.
-        </p>
+
+        <!-- Mobile preview button -->
+        <button class="mobile-preview-btn" (click)="openExperience(exp); $event.stopPropagation()"
+          aria-label="View experience details">
+          <i class="bi bi-eye"></i>
+        </button>
+
+        <h6 class="date">{{ exp.period }}</h6>
+        <h3>{{ exp.role }}</h3>
+
+        <a [href]="exp.companyUrl" target="_blank" class="gradient-text" (click)="$event.stopPropagation()">
+          {{ exp.company }}
+        </a>
+
+        <p class="pt-2">{{ exp.summary }}</p>
+
         <div class="tags">
-          <span>Angular</span>
-          <span>TypeScript</span>
-          <span>RxJS</span>
-          <span>Javascript</span>
-          <span>SCSS</span>
-        </div>
-      </div>
-    </div>
-    <!-- Item 3 -->
-    <div class="timeline-item left mb-0">
-      <div class="timeline-dot">
-        <span><i class="bi bi-briefcase"></i></span>
-      </div>
-      <div class="glass-card">
-        <h6 class="date">2020 - 2023</h6>
-        <h3>UI Developer</h3>
-        <a href="https://globemindstechnologies.com//" target="_blank" class="gradient-text">Globeminds Technologies Pvt Ltd</a>
-        <p class="pt-2">
-          Build and improve responsive user interfaces, working with cross-functional teams to deliver clean, user-friendly, and engaging UI components while improving performance, usability, and design consistency across devices and browsers.
-        </p>
-        <div class="tags justify-content-lg-end">
-          <span>Angular</span>
-          <span>javascript</span>
-          <span>HTML</span>
-          <span>SCSS</span>
-          <span>Bootstrap</span>
+          <span *ngFor="let tech of exp.tech | slice:0:5">{{ tech }}</span>
         </div>
       </div>
     </div>
   </div>
+
 </section>
+<div class="modal fade" id="experienceModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content glass-modal">
+
+      <div class="modal-header align-items-start border-0">
+        <div>
+          <h5 class="modal-title">{{ selectedExperience?.role }}</h5>
+          <a [href]="selectedExperience?.companyUrl" target="_blank" class="gradient-text">
+            {{ selectedExperience?.company }}
+          </a>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"><i class="bi bi-x"></i></button>
+      </div>
+
+      <div class="modal-body">
+        
+        <div class="pb-4">
+          <strong><i class="bi bi-folder2-open me-1"></i> Projects:</strong>
+          <ul class="projectList mt-2 mb-0">
+            <li class="me-5" *ngFor="let project of selectedExperience?.projects">{{project}}</li>
+          </ul>
+        </div>
+        <div class="pb-4">
+          <strong><i class="bi bi-stack me-1"></i> Tech Stack:</strong>
+          <div class="techStack ps-4 mt-2">
+            <span class="me-2" *ngFor="let tech of selectedExperience?.tech; let i = index">
+              {{ tech }} <span *ngIf="i < selectedExperience.tech.length - 1"> | </span>
+            </span>
+          </div>
+        </div>
+        <div class="pb-4">
+          <strong><i class="bi bi-person-workspace me-1"></i> Role & Responsibilities:</strong>
+          <ul class="mt-2 mb-0">
+            <li *ngFor="let item of selectedExperience?.details">
+              {{ item }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
